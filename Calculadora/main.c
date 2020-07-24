@@ -25,10 +25,11 @@ float divi (float a, float b)
     return d;
 }
 
-void novo (float a)
+float novo (float a)
 {
     printf("Digite o novo valor: ");
     scanf("%f", &a);
+    return a;
 }
 
 int main()
@@ -38,7 +39,7 @@ int main()
     printf(" - Primeiro digite o simbolo da operacao.\n (+ = soma // - = subtracao // * = multiplicacao // / = divisao) \n");
     printf(" - Caso queira zerar os valores digite tecle Z.\n");
     printf(" - Caso queira encerrar os calculos tecle f.\n\n");
-    float n1, n2, n3, soma, sub, multi, div, raiz, x = 0, func;
+    float n1, n2, n3, soma, sub, multi, div, x = 0;
     char car;
     inicio:
     n1 = 0; n2 = 0; n3 = 0; x = 0;
@@ -87,32 +88,30 @@ int main()
         setbuf(stdin, NULL);
         printf("Digite o simbolo da operacao: ");
         car = getchar();
-        /*printf("Digite o novo valor: ");
-        scanf("%f", &n3);*/
         if(car == '+')
         {
-            novo(n3);
+            n3 = novo(n3);
             soma = mais(x, n3);
             printf("A soma eh: %.2f \n\n", soma);
             x = soma;
         }
         else if(car == '-')
         {
-            novo(n3);
+            n3 = novo(n3);
             sub = menos(x, n3);
             printf("A subtracao eh: %.2f \n\n", sub);
             x = sub;
         }
         else if(car == '*')
         {
-            novo(n3);
+            n3 = novo(n3);
             multi = vezes(x, n3);
             printf("A multiplicacao eh: %.2f \n\n", multi);
             x = multi;
         }
         else if(car == '/')
         {
-            novo(n3);
+            n3 = novo(n3);
             while(n3 == 0)
             {
                 printf("Valor do denominador eh invalido!!! /n/n");
